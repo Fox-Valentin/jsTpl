@@ -5,7 +5,7 @@ function Template(tpl){
 		code = ['var r=[];\nvar _html = function (str) { return str.replace(/&/g, \'&amp;\').replace(/"/g, \'&quot;\').replace(/\'/g, \'&#39;\').replace(/</g, \'&lt;\').replace(/>/g, \'&gt;\'); };'],// 存储运行的模板代码
 		re = /\{\s*([a-zA-Z\.\_0-9()]+)(\s*\|\s*safe)?\s*\}/m,//正则，检出模板字符串中的{ something } 需要被替换的部分
 		addLine = function(text){//在code 数组中新增元素，就是字符串
-			// 每一行是一个push方法，同时把模板字符串中的的 \ 回车 tab 替换为转义后的字符
+			// 每一行是一个push方法，同时把模板字符串中的的 \ 回车 tab 替换为转义后  的字符
 			code.push('r.push(\'' + text.replace(/\'/g, '\\\'').replace(/\n/g, '\\n').replace(/\r/g, '\\r') + '\');');
 		};
 	while (match = re.exec(tpl)){//使用re正则匹配模板字符串

@@ -14,7 +14,7 @@
 	
 </body>
 <script>
-	var tpl = new Template($('#tpl').html());
+	var tpl = new Template(document.getElementById("tpl").innerHTML);
 	var s = tpl.render({
 		date: 20150101,
 	    user: {
@@ -22,6 +22,6 @@
 	        company: 'AT&T'
 	    }
 	});
-	$('#body').html(s);
+	document.getElementById("body").innerHTML = s;
 </script>
 </html>
