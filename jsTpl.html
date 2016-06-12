@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jsTpl.js"></script>
+	<script src="jquery-1.10.1.min.js"></script>
+	<script id="tpl" type="text/plain">
+		<p>Today:{date}</p>
+		<a href="/{user.id|safe}">{user.company}</a>
+	</script>
+</head>
+<body id="body">
+	
+</body>
+<script>
+	var tpl = new Template($('#tpl').html());
+	var s = tpl.render({
+		date: 20150101,
+	    user: {
+	        id: 'A-000&001',
+	        company: 'AT&T'
+	    }
+	});
+	$('#body').html(s);
+</script>
+</html>
